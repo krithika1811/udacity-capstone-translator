@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  TOKEN: 'aE90YUhJWFNMNk13U1JjN1g5bHNXUT09cXB3ZW9QcUJiY3VzeVZMZQ=='
+  # URL: http://localhost:8100  
+metadata:
+  name: env-config
+  
