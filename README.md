@@ -38,5 +38,6 @@ It contains the screenshots of :
     4.kubectl get pods and kubectl describe services
     5.kubectl logs
     6.Kubectl describe hpa
+    7.Cloudwatch
 
 
