@@ -6,11 +6,10 @@ def decode_token(token):
     """
      This method decodes base64 encoded string to string
     """
-    base64_token = os.environ['TOKEN']
-    base64_bytes = base64_token.encode('ascii') 
+    base64_bytes = token.encode('ascii') 
     message_bytes = base64.b64decode(base64_bytes)
-    token = message_bytes.decode('ascii')
-    return decode_token
+    decoded_token = message_bytes.decode('ascii')
+    return decoded_token
 
 def get_random_quote(token, category="Success"):
     url = f"https://api.api-ninjas.com/v1/quotes?category={category.lower()}"

@@ -9,5 +9,5 @@ Have fun playing!
 ## Dev setup
 
 ```code
-docker run -e TOKEN="ENCODED VALUE" -p 8501:8501 streamlit
+docker run -e TOKEN="ENCODED VALUE" -p 8501:8501 krithika1811/udacity-translator:latest
 ```
