@@ -37,5 +37,6 @@ It contains the screenshots of :
     3.Front page of the app
     4.kubectl get pods and kubectl describe services
     5.kubectl logs
+    6.Kubectl describe hpa
 
 
