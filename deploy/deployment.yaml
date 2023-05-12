@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: udacity-translator-service
+  name: udacity-translator-deployment
+spec:
+  selector:
+    matchLabels:
+      service: udacity-translator-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: udacity-translator-service
+        api: external        
+    spec:
+      containers:
+      - image: krithika1811/udacity-translator
+        name: udacity-translator-container
+        imagePullPolicy: Always          
+        ports:
+        - containerPort: 8501
+        livenessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+              scheme: HTTP
+            timeoutSeconds: 1
+        readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+              scheme: HTTP
+            timeoutSeconds: 1
+        resources:
+          requests:
+            memory: "4096Mi"
+            cpu: "500m"
+          limits:
+            memory: "4096Mi"
+            cpu: "500m"
+        env:
+        - name: TOKEN
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: TOKEN                
+      restartPolicy: Always
